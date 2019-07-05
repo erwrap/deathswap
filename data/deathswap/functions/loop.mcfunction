@@ -4,6 +4,7 @@ execute if score game_state game_state matches 1 run gamemode survival @a[team=B
 execute if score game_state game_state matches 1 run gamemode survival @a[team=Green]
 execute if score game_state game_state matches 1 run gamemode survival @a[team=Orange]
 execute if score game_state game_state matches 1 run gamemode spectator @a[team=!Green,team=!Orange,team=!Blue,team=!Red]
+execute if score game_state game_state matches 1 run tag @a[team=!Green,team=!Orange,team=!Blue,team=!Red,tag=!dead] add dead
 
 # when the game ends
 execute if score game_state game_state matches 0 run effect give @a saturation 2 0 true
