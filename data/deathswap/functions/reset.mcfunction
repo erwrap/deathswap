@@ -19,3 +19,4 @@ gamerule naturalRegeneration true
 tag @a remove player
 tag @a remove dead
 gamerule keepInventory true
+advancement revoke @a everything
