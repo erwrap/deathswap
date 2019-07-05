@@ -30,12 +30,15 @@ bossbar add red {"text":"Red Player","color":"red","bold":true}
 bossbar add blue {"text":"Blue Player","color":"blue","bold":true}
 bossbar add green {"text":"Green Player","color":"green","bold":true}
 bossbar add gold {"text":"Orange Player","color":"gold","bold":true}
+bossbar set minecraft:red color red
 bossbar set minecraft:blue color blue
 bossbar set minecraft:green color green
 bossbar set minecraft:gold color yellow
+bossbar set minecraft:red max 20
 bossbar set minecraft:blue max 20
 bossbar set minecraft:green max 20
 bossbar set minecraft:gold max 20
+bossbar set minecraft:red players @a
 bossbar set minecraft:blue players @a
 bossbar set minecraft:green players @a
 bossbar set minecraft:gold players @a
