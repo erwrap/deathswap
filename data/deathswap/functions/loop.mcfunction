@@ -23,12 +23,12 @@ bossbar set minecraft:gold name {"selector":"@a[team=Orange]", "color":"gold","b
 # removes then re-adds teams once a player dies.
 execute if score game_state game_state matches 1 if score @a deaths matches 1.. run scoreboard players remove playerCount playerCount 1
 
-execute if score game_state game_state matches 1 if score playerCount matches 2.. if score @a[team=Red] deaths matches 1 run tag @s add dead
-execute if score game_state game_state matches 1 if score playerCount matches 2.. if score @a[team=Blue] deaths matches 1 run tag @s add dead
-execute if score game_state game_state matches 1 if score playerCount matches 2.. if score @a[team=Green] deaths matches 1 run tag @s add dead
-execute if score game_state game_state matches 1 if score playerCount matches 2.. if score @a[team=Orange] deaths matches 1 run tag @s add dead
+execute if score game_state game_state matches 1 if score playerCount playerCount matches 2.. if score @a[team=Red] deaths matches 1 run tag @s add dead
+execute if score game_state game_state matches 1 if score playerCount playerCount matches 2.. if score @a[team=Blue] deaths matches 1 run tag @s add dead
+execute if score game_state game_state matches 1 if score playerCount playerCount matches 2.. if score @a[team=Green] deaths matches 1 run tag @s add dead
+execute if score game_state game_state matches 1 if score playerCount playerCount matches 2.. if score @a[team=Orange] deaths matches 1 run tag @s add dead
 
-execute if score game_state game_state matches 1 if score playerCount matches 2.. if score @a deaths matches 1.. run team leave @a
+execute if score game_state game_state matches 1 if score playerCount playerCount matches 2.. if score @a deaths matches 1.. run team leave @a
 
 execute if score game_state game_state matches 1 if score playerCount playerCount matches 2.. run execute unless entity @a[team=Green] run team join Green @r[team=!Orange,team=!Blue,tag=!dead]
 execute if score game_state game_state matches 1 if score playerCount playerCount matches 2.. run execute unless entity @a[team=Orange] run team join Orange @r[team=!Green,team=!Blue,tag=!dead]
@@ -45,8 +45,8 @@ execute if score game_state game_state matches 1 run execute store result bossba
 execute if score game_state game_state matches 1 run execute store result bossbar minecraft:gold value run data get entity @a[team=Orange,limit=1] Health
 
 # ends the game if the last person is remaining.
-execute unless score playerCount matches 2.. if score game_state game_state matches 1 run execute if score @a[team=Green,limit=1] deaths matches 1 run function deathswap:end
-execute unless score playerCount matches 2.. if score game_state game_state matches 1 run execute if score @a[team=Orange,limit=1] deaths matches 1 run function deathswap:end
+execute unless score playerCount playerCount matches 2.. if score game_state game_state matches 1 run execute if score @a[team=Green,limit=1] deaths matches 1 run function deathswap:end
+execute unless score playerCount playerCount matches 2.. if score game_state game_state matches 1 run execute if score @a[team=Orange,limit=1] deaths matches 1 run function deathswap:end
 
 # other stuff lmAO
 execute if score game_state game_state matches 1 run execute if score saturation settings matches 1 run effect give @e[tag=player] saturation 2 0 true
