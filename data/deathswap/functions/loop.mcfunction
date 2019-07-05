@@ -12,31 +12,11 @@ execute if score game_state game_state matches 0 run replaceitem entity @a hotba
 
 # removes then re-adds teams once a player dies.
 execute if score game_state game_state matches 1 as @a[scores={deaths=1},tag=!dead] run scoreboard players remove playerCount playerCount 1
-
 execute if score game_state game_state matches 1 if score playerCount playerCount matches 2.. as @a[tag=!dead] if score @s deaths matches 1.. run team leave @a
-
 execute if score game_state game_state matches 1 if score playerCount playerCount matches 2.. as @a[scores={deaths=1},tag=!dead] run tag @s add dead
-
-#execute if score game_state game_state matches 1 if score playerCount playerCount matches 2.. as @a[team=Red,limit=1,scores={deaths=1}] run tag @s add dead
-#execute if score game_state game_state matches 1 if score playerCount playerCount matches 2.. as @a[team=Blue,limit=1,scores={deaths=1}] run tag @s add dead
-#execute if score game_state game_state matches 1 if score playerCount playerCount matches 2.. as @a[team=Green,limit=1,scores={deaths=1}] run tag @s add dead
-#execute if score game_state game_state matches 1 if score playerCount playerCount matches 2.. as @a[team=Orange,limit=1,scores={deaths=1}] run tag @s add dead
-
-
-
 execute if score game_state game_state matches 1 if score playerCount playerCount matches 2.. unless entity @a[team=Green] run team join Green @r[team=!Orange,team=!Blue,tag=!dead]
 execute if score game_state game_state matches 1 if score playerCount playerCount matches 2.. unless entity @a[team=Orange] run team join Orange @r[team=!Green,team=!Blue,tag=!dead]
 execute if score game_state game_state matches 1 if score playerCount playerCount matches 3.. unless entity @a[team=Blue] run team join Blue @r[team=!Orange,team=!Green,tag=!dead]
-
-# update bossbar with player's name
-bossbar set minecraft:red name {"selector":"@a[team=Red]", "color":"red","bold":true}
-bossbar set minecraft:blue name {"selector":"@a[team=Blue]", "color":"blue","bold":true}
-bossbar set minecraft:green name {"selector":"@a[team=Green]", "color":"green","bold":true}
-bossbar set minecraft:gold name {"selector":"@a[team=Orange]", "color":"gold","bold":true}
-
-# bossbar things
-execute if score playerCount playerCount matches ..3 run bossbar set minecraft:red visible false
-execute if score playerCount playerCount matches ..2 run bossbar set minecraft:blue visible false
 
 # ends the game if the last person is remaining.
 execute if score playerCount playerCount matches 1 if score game_state game_state matches 1 run function deathswap:end
@@ -47,7 +27,18 @@ execute if score game_state game_state matches 1 run execute if score timer time
 execute if score game_state game_state matches 1 run execute if score timer timer > limit timer run scoreboard players add elapsed timer 1
 execute if score game_state game_state matches 1 run execute if score elapsed timer = tickrate timer run scoreboard players add seconds timer 1
 execute if score game_state game_state matches 1 run execute if score elapsed timer = tickrate timer run scoreboard players set elapsed timer 1
-execute if score game_state game_state matches 1 run execute store result bossbar minecraft:blue value run data get entity @a[team=Green,limit=1] Health
+
+# update bossbar with player's name
+bossbar set minecraft:red name {"selector":"@a[team=Red]", "color":"red","bold":true}
+bossbar set minecraft:blue name {"selector":"@a[team=Blue]", "color":"blue","bold":true}
+bossbar set minecraft:green name {"selector":"@a[team=Green]", "color":"green","bold":true}
+bossbar set minecraft:gold name {"selector":"@a[team=Orange]", "color":"gold","bold":true}
+
+# bossbar things
+execute if score playerCount playerCount matches ..3 run bossbar set minecraft:red visible false
+execute if score playerCount playerCount matches ..2 run bossbar set minecraft:blue visible false
+execute if score game_state game_state matches 1 run execute store result bossbar minecraft:red value run data get entity @a[team=Red,limit=1] Health
+execute if score game_state game_state matches 1 run execute store result bossbar minecraft:blue value run data get entity @a[team=Blue,limit=1] Health
 execute if score game_state game_state matches 1 run execute store result bossbar minecraft:green value run data get entity @a[team=Green,limit=1] Health
 execute if score game_state game_state matches 1 run execute store result bossbar minecraft:gold value run data get entity @a[team=Orange,limit=1] Health
 
