@@ -13,6 +13,28 @@ execute if score playerCount playerCount matches 4 run tp @a[team=Green] @a[team
 execute if score playerCount playerCount matches 4 run tp @a[team=Orange] @e[team=Blue,limit=1]
 execute if score playerCount playerCount matches 4 run tp @a[team=Blue] @e[team=Red,limit=1]
 execute if score playerCount playerCount matches 4 run tp @a[team=Red] @e[name=tele,limit=1]
+# five players
+execute if score playerCount playerCount matches 5 run tp @a[team=Green] @a[team=Orange,limit=1]
+execute if score playerCount playerCount matches 5 run tp @a[team=Orange] @e[team=Blue,limit=1]
+execute if score playerCount playerCount matches 5 run tp @a[team=Blue] @e[team=Red,limit=1]
+execute if score playerCount playerCount matches 5 run tp @a[team=Red] @e[name=Purple,limit=1]
+execute if score playerCount playerCount matches 5 run tp @a[team=Purple] @e[name=tele,limit=1]
+# six players
+execute if score playerCount playerCount matches 6 run tp @a[team=Green] @a[team=Orange,limit=1]
+execute if score playerCount playerCount matches 6 run tp @a[team=Orange] @e[team=Blue,limit=1]
+execute if score playerCount playerCount matches 6 run tp @a[team=Blue] @e[team=Red,limit=1]
+execute if score playerCount playerCount matches 6 run tp @a[team=Red] @e[name=Purple,limit=1]
+execute if score playerCount playerCount matches 6 run tp @a[team=Purple] @e[name=Aqua,limit=1]
+execute if score playerCount playerCount matches 6 run tp @a[team=Aqua] @e[name=tele,limit=1]
+# seven players
+execute if score playerCount playerCount matches 7 run tp @a[team=Green] @a[team=Orange,limit=1]
+execute if score playerCount playerCount matches 7 run tp @a[team=Orange] @e[team=Blue,limit=1]
+execute if score playerCount playerCount matches 7 run tp @a[team=Blue] @e[team=Red,limit=1]
+execute if score playerCount playerCount matches 7 run tp @a[team=Red] @e[name=Purple,limit=1]
+execute if score playerCount playerCount matches 7 run tp @a[team=Purple] @e[name=Aqua,limit=1]
+execute if score playerCount playerCount matches 7 run tp @a[team=Aqua] @e[name=Gray,limit=1]
+execute if score playerCount playerCount matches 7 run tp @a[team=Gray] @e[name=tele,limit=1]
+
 # reset/effects
 kill @e[name=tele]
 function deathswap:timer
