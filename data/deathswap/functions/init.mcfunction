@@ -22,10 +22,16 @@ team add Red {"text":"Red Player", "color":"blue","bold":true}
 team add Blue {"text":"Blue Player","color":"blue","bold":true}
 team add Green {"text":"Green Player","color":"green","bold":true}
 team add Orange {"text":"Orange Player","color":"gold","bold":true}
+team add Purple {"text":"Purple Player","color":"dark_purple","bold":true}
+team add Aqua {"text":"Aqua Player","color":"aqua","bold":true}
+team add Gray {"text":"Gray Player","color":"gray","bold":true}
 team modify Red color red
 team modify Blue color blue
 team modify Orange color gold
 team modify Green color green
+team modify Purple color dark_purple
+team modify Aqua color aqua
+team modify Gray color gray
 bossbar add red {"text":"Red Player","color":"red","bold":true}
 bossbar add blue {"text":"Blue Player","color":"blue","bold":true}
 bossbar add green {"text":"Green Player","color":"green","bold":true}
